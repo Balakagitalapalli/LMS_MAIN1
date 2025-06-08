@@ -8,7 +8,7 @@ function Footer(){
      <footer>
         <div className="footer-col">
           <h3>Master Courses</h3>
-          <li>Sai Satish</li>
+          <li>Web Development</li>
           <li>Programming</li>
           <li>Machine Learning</li>
           <li>Project Fundamentals</li>
