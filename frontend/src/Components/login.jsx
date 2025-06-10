@@ -9,26 +9,27 @@ function Login() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-
   const { setUser } = useUserContext();
 
   const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/users/login", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
+
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
         localStorage.setItem("email", email);
         console.log(data.token);
+
         const userDetailsResponse = await fetch(
-          `http://localhost:8080/api/users/details?email=${email}`
+          `${process.env.REACT_APP_API_URL}/api/users/details?email=${email}`
         );
 
         if (userDetailsResponse.ok) {
@@ -56,7 +57,7 @@ function Login() {
       <div className="auth">
         <div className="container">
           <h3>Welcome!</h3>
-          <br></br>
+          <br />
           <h2>Login</h2>
           <br />
           <form autoComplete="off" className="form-group" onSubmit={login}>
@@ -95,4 +96,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;
