@@ -44,7 +44,7 @@ const Certificate = () => {
 
     async function fetchCourse() {
       try {
-        const response = await fetch(`http://localhost:8080/api/courses/${courseId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/courses/${courseId}`);
         if (!response.ok) throw new Error("Failed to fetch course data.");
         const fetchedCourse = await response.json();
         setCourse(fetchedCourse);
