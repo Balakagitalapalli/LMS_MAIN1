@@ -61,7 +61,7 @@ const Course = () => {
   const handleDuration = () => {
     setDuration(playerRef.current.getDuration());
     if(duration!=0){
-      fetch("`${process.env.REACT_APP_API_URL}/api/progress/update-duration`", {
+      fetch(`${process.env.REACT_APP_API_URL}/api/progress/update-duration`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const Course = () => {
     const updateProgress = async () => {
         if (courseId && userId) {
             try {
-                const response = await fetch("`${process.env.REACT_APP_API_URL}/api/progress/update-progress`", {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/progress/update-progress`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
