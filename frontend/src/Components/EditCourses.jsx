@@ -53,7 +53,7 @@ function EditCourse() {
   useEffect(() => {
     async function fetchCourse() {
       try {
-        const response = await axios.get(`http://localhost:8080/api/courses/${courseId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/courses/${courseId}`);
         const fetchedCourse = response.data;
         setFormData(fetchedCourse);
       } catch (err) {
