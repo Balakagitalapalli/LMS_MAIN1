@@ -15,7 +15,7 @@ function Courses() {
    const authToken = localStorage.getItem('token');
   
   useEffect(() => {
-    fetch("http://localhost:8080/api/courses")
+    fetch(`${process.env.REACT_APP_API_URL}/api/users/login`)
       .then((response) => response.json())
       .then((data) => {
         setCourses(data);
@@ -47,7 +47,7 @@ function Courses() {
         userId: userId,
         courseId: courseId
      };
-      axios.post('http://localhost:8080/api/learning', enrollRequest)
+      axios.post(`${process.env.REACT_APP_API_URL}/api/learning', enrollRequest)
           .then((response) => {
             if(response.data == "Enrolled successfully"){
               toast.success('Course Enrolled successfully', {
