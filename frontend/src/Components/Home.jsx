@@ -44,7 +44,7 @@ function Home() {
             <a className="blue" href="https://adityauniversity.in/">
               Learn More
             </a>
-            <a className="yellow" href=`${process.env.REACT_APP_API_URL}/courses`>
+            <a className="yellow" href="http://localhost:3000/courses">
               Visit Courses
             </a>
           </div>
