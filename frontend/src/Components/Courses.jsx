@@ -25,7 +25,7 @@ function Courses() {
       });
       const userId = localStorage.getItem("id");
       if(userId){
-        fetch(`http://localhost:8080/api/learning/${userId}`)
+        fetch(`${process.env.REACT_APP_API_URL}/api/learning/${userId}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
