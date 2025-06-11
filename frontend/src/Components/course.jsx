@@ -44,9 +44,7 @@ const Course = () => {
   useEffect(() => {
     async function fetchCourse() {
       try {
-        const response = await axios.get(
-          (`${process.env.REACT_APP_API_URL}/api/courses/${courseId}`
-        );
+        const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/courses/${courseId}`);
         const fetchedCourse = response.data;
         setCourse(fetchedCourse);
         setLoading(false);
@@ -61,7 +59,7 @@ const Course = () => {
   const handleDuration = () => {
     setDuration(playerRef.current.getDuration());
     if(duration!=0){
-      fetch(`${process.env.REACT_APP_API_URL}/api/progress/update-duration`, {
+       axios.post(`https://inspiring-balance-production.up.railway.appapi/progress/update-duration`), {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -76,7 +74,7 @@ const Course = () => {
   };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/progress/${userId}/${courseId}`)
+     axios.post(`https://inspiring-balance-production.up.railway.app/api/progress/${userId}/${courseId}`)
         .then((response) => response.json())
         .then((data) => {
             setPlayed(data);
@@ -92,7 +90,7 @@ const Course = () => {
     const updateProgress = async () => {
         if (courseId && userId) {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/progress/update-progress`, {
+                const response = await   axios.post(`https://inspiring-balance-production.up.railway.app/api/progress/update-progress`), {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
