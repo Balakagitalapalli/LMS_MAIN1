@@ -12,7 +12,7 @@ const Performance = () => {
     async function fetchCourse() {
       try {
         const userId = localStorage.getItem("id");
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/learning/${userId}`);
+        const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/learning/${userId}`);
         const fetchedCourse = response.data;
         setEnrolledCourses(fetchedCourse);
       } catch (err) {
@@ -24,7 +24,7 @@ const Performance = () => {
 
   useEffect(()=>{
     const userId = localStorage.getItem("id");
-    fetch(`${process.env.REACT_APP_API_URL}/api/assessments/perfomance/${userId}`).then((res)=>res.json()).then((data)=>{setPerfomanceData(data)});
+     axios.post(`https://inspiring-balance-production.up.railway.app/api/assessments/perfomance/${userId}`).then((res)=>res.json()).then((data)=>{setPerfomanceData(data)});
    
   },[])
 
