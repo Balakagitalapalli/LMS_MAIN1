@@ -21,7 +21,7 @@ const Feedback = (props) => {
     if (feedback === "" && !courseId) {
       alert("Please enter feedback to submit");
     } else {
-      fetch("http://localhost:8080/api/feedbacks", {
+      fetch(`${process.env.REACT_APP_API_URL}/api/feedbacks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
