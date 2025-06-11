@@ -31,7 +31,7 @@ const Certificate = () => {
 
     async function fetchUserDetails() {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/${id}`);
         if (!response.ok) throw new Error("Failed to fetch user details.");
         const data = await response.json();
         setUserDetails(data);
