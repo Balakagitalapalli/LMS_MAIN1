@@ -74,7 +74,7 @@ function EditCourse() {
     }
     console.log(formData)
     const response = await axios.post(
-      `http://localhost:8080/api/courses/${courseId}`,
+      (`${process.env.REACT_APP_API_URL}/api/courses/${courseId}`,
       formData
     );
 
