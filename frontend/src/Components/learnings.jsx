@@ -11,7 +11,7 @@ function Learnings(){
     useEffect(() => {
         async function fetchCourse() {
           try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/learning/${userId}`);
+            const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/learning/${userId}`);
             const fetchedCourse = response.data;
             setCourse(fetchedCourse);
           } catch (err) {
