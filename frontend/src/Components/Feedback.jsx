@@ -8,7 +8,7 @@ const Feedback = (props) => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/feedbacks/${courseId}`)
+     axios.post(`https://inspiring-balance-production.up.railway.app/api/feedbacks/${courseId}`)
       .then((res) => res.json())
       .then((data) => {
         const firstThreeFeedbacks = data.slice(0, 3);
@@ -21,7 +21,7 @@ const Feedback = (props) => {
     if (feedback === "" && !courseId) {
       alert("Please enter feedback to submit");
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/feedbacks`, {
+       axios.post(`https://inspiring-balance-production.up.railway.app/api/feedbacks`), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
