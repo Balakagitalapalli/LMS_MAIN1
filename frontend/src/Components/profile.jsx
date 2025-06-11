@@ -23,9 +23,7 @@ function Profile() {
 
     async function fetchUserDetails() {
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/api/users/${id}`
-        );
+        const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/users/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch user details.");
         }
