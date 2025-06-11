@@ -17,7 +17,7 @@ function Courses() {
   const navigate = useNavigate();
 
   const fetchCourses = () => {
-    fetch("http://localhost:8080/api/courses")
+    fetch(`${process.env.REACT_APP_API_URL}/api/courses`)
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => {
@@ -38,7 +38,7 @@ function Courses() {
 
   const handleOk = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/delete", {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/delete`, {
         courseId: cid,
       });
       message.success("Course deleted successfully");
