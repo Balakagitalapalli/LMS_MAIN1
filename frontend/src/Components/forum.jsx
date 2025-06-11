@@ -18,10 +18,10 @@ function Forum() {
   });
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/discussions/${courseId}`)
+     axios.post(`https://inspiring-balance-production.up.railway.app/api/discussions/${courseId}`)
       .then((res) => res.json())
       .then((data) => setMessage(data));
-      fetch(`${process.env.REACT_APP_API_URL}/api/courses/${courseId}`).then((res)=>res.json()).then((data)=>setCourse(data));
+       axios.post(`https://inspiring-balance-production.up.railway.app/api/courses/${courseId}`).then((res)=>res.json()).then((data)=>setCourse(data));
   }, []);
 
   const addTask = () => {
@@ -29,7 +29,7 @@ function Forum() {
       const newMessage = taskRef.current.value.trim();
       setFormData({ ...formData, content: newMessage });
   
-      fetch(`${process.env.REACT_APP_API_URL}/discussions/addMessage', {
+       axios.post(`https://inspiring-balance-production.up.railway.app/discussions/addMessage`),{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
