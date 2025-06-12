@@ -14,7 +14,7 @@ function Login() {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/users/login`), {
+      const response = await  fetch("https://inspiring-balance-production.up.railway.app/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,8 @@ function Login() {
         localStorage.setItem("email", email);
         console.log(data.token);
 
-        const userDetailsResponse = await axios.post(`https://inspiring-balance-production.up.railway.app/api/users/details?email=${email}`
+        const userDetailsResponse = await fetch(
+          `https://inspiring-balance-production.up.railway.app/api/users/details?email=${email}`
         );
 
         if (userDetailsResponse.ok) {
