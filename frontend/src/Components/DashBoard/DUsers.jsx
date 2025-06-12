@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 function Users() {
   const [users , setUsers] = useState([]);
   useEffect(()=>{
-    axios.post(`https://inspiring-balance-production.up.railway.app/api/users`).then((data)=>data.json()).then((res)=>setUsers(res));
+    fetch("https://inspiring-balance-production.up.railway.app/api/users").then((data)=>data.json()).then((res)=>setUsers(res));
   },[])
   console.log(users);
   return (
