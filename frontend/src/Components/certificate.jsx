@@ -31,7 +31,7 @@ const Certificate = () => {
 
     async function fetchUserDetails() {
       try {
-        const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/users/${id}`);
+        const response = await  fetch(`https://inspiring-balance-production.up.railway.app/api/users/${id}`);
         if (!response.ok) throw new Error("Failed to fetch user details.");
         const data = await response.json();
         setUserDetails(data);
@@ -44,7 +44,7 @@ const Certificate = () => {
 
     async function fetchCourse() {
       try {
-        const response = await axios.post(`https://inspiring-balance-production.up.railway.app/api/courses/${courseId}`);
+        const response = await fetch(`https://inspiring-balance-production.up.railway.app/api/courses/${courseId}`);
         if (!response.ok) throw new Error("Failed to fetch course data.");
         const fetchedCourse = await response.json();
         setCourse(fetchedCourse);
