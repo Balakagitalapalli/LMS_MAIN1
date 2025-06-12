@@ -27,7 +27,7 @@ function RegistrationForm() {
     e.preventDefault();
 
     try {
-      const response = await  fetch("https://inspiring-balance-production.up.railway.app/api/users/add", {
+      const response = await   fetch("https://inspiring-balance-production.up.railway.app/api/users/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
