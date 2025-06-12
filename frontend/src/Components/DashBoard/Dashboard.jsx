@@ -9,11 +9,20 @@ function Dashboard() {
   const [coursescount , setCoursescount] = useState(0);
   const[enrolled , setEnrolled] = useState(0);
 
-  useEffect(()=>{
-    fetch("https://inspiring-balance-production.up.railway.app/api/users").then((data)=>data.json()).then((res)=>setUserscount(res.length));
-     fetch("https://inspiring-balance-production.up.railway.app/api/courses").then((data)=>data.json()).then((res)=>setCoursescount(res.length));
-     fetch("https://inspiring-balance-production.up.railway.app/api/learning").then((data)=>data.json()).then((res)=>setEnrolled(res.length));
-  },[])
+ useEffect(() => {
+  fetch("https://inspiring-balance-production.up.railway.app/api/users")
+    .then((data) => data.json())
+    .then((res) => setUserscount(res.length));
+
+  fetch("https://inspiring-balance-production.up.railway.app/api/courses")
+    .then((data) => data.json())
+    .then((res) => setCoursescount(res.length));
+
+  fetch("https://inspiring-balance-production.up.railway.app/api/learning")
+    .then((data) => data.json())
+    .then((res) => setEnrolled(res.length));
+}, []);
+
 
   return (
     <body style={{backgroundColor:"#eee"}}>
