@@ -10,9 +10,9 @@ function Dashboard() {
   const[enrolled , setEnrolled] = useState(0);
 
   useEffect(()=>{
-    axios.post(`https://inspiring-balance-production.up.railway.app/api/users`).then((data)=>data.json()).then((res)=>setUserscount(res.length));
-     axios.post(`https://inspiring-balance-production.up.railway.app/api/courses`).then((data)=>data.json()).then((res)=>setCoursescount(res.length));
-     axios.post(`https://inspiring-balance-production.up.railway.app/api/learning`).then((data)=>data.json()).then((res)=>setEnrolled(res.length));
+    fetch("https://inspiring-balance-production.up.railway.app/api/users").then((data)=>data.json()).then((res)=>setUserscount(res.length));
+     fetch("https://inspiring-balance-production.up.railway.app/api/courses").then((data)=>data.json()).then((res)=>setCoursescount(res.length));
+     fetch("https://inspiring-balance-production.up.railway.app/api/learning").then((data)=>data.json()).then((res)=>setEnrolled(res.length));
   },[])
 
   return (
