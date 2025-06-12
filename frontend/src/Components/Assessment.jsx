@@ -18,7 +18,7 @@ function YourComponent() {
   const [openModal, setOpenModal] = useState(false);
   const[totalQsns , SetTotalQsns] = useState(0);
   useEffect(() => {
-    axios.post(`https://inspiring-balance-production.up.railway.app/api/questions/${courseId}`)
+   fetch(`https://inspiring-balance-production.up.railway.app/api/questions/${courseId}`)
       .then(res => res.json())
       .then(res => {
         setTest(res);
