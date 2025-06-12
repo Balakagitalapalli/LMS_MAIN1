@@ -57,7 +57,7 @@ function Learnings(){
         <Navbar page={"learnings"} />
     <div className="learn-courses-container" style={{marginTop :"100px",background: "linear-gradient(to right, rgb(240, 161, 23),rgb(223, 255, 247))",}}>
       {courses.map((course) => (
-        <div key={course.id} className="learn-course-card">
+        <div key={course.id} className="learn-course-card" style={{marginTop :"30px",}}>
         <img src={course.photo} alt={course.courseName} className="learn-course-image" />
         <div className="course-details">
             <h3 className="course-heading">
