@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 function Tutors() {
   const [tutors , setTutors] = useState([]);
   useEffect(()=>{
-    axios.post(`https://inspiring-balance-production.up.railway.app/tutors`).then((data)=>data.json()).then((res)=>setTutors(res));
+   fetch("https://inspiring-balance-production.up.railway.app/tutors").then((data)=>data.json()).then((res)=>setTutors(res));
   },[])
   console.log(tutors);
   return (
