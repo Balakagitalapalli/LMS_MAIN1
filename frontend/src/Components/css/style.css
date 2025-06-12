@@ -50,12 +50,13 @@ nav {
 }
 
 nav img {
-  width: 250px;
-  height: 90px;
+   width: 250px;
+  height: auto;
   cursor: pointer;
   margin-left: -80px;
   padding-top: 15px;
   padding-bottom: 15px;
+  display: flex;
 }
 
 nav .logo1 {
