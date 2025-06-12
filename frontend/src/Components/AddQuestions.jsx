@@ -15,11 +15,17 @@ function AddCourse() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // Ensure price is stored as number, not string
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: name === 'price' ? parseFloat(value) : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(''); // Clear previous error
 
     try {
       const response = await fetch(
@@ -33,16 +39,16 @@ function AddCourse() {
         }
       );
 
-      if (response.status === 200 || response.status === 201) {
+      if (response.ok) {
         console.log('Course added successfully!');
         navigate('/courses');
       } else {
         const data = await response.json();
-        setError(data.error || 'Failed to add course');
+        setError(data?.error || 'Failed to add course.');
       }
     } catch (err) {
-      console.error(err);
-      setError('Error while adding course.');
+      console.error('Network error:', err);
+      setError('An error occurred while adding the course.');
     }
   };
 
@@ -51,7 +57,8 @@ function AddCourse() {
       <div className="container1">
         <h2>Course Registration</h2>
         <form onSubmit={handleSubmit} className="addCourse-form">
-          <label>Name :</label>
+
+          <label>Name:</label>
           <input
             type="text"
             name="courseName"
@@ -61,7 +68,7 @@ function AddCourse() {
             style={{ width: '100%' }}
           />
 
-          <label>Instructor :</label>
+          <label>Instructor:</label>
           <input
             type="text"
             name="tutor"
@@ -71,27 +78,28 @@ function AddCourse() {
             style={{ width: '100%' }}
           />
 
-          <label>Price :</label>
+          <label>Price:</label>
           <input
             type="number"
             name="price"
             value={formData.price}
             onChange={handleChange}
             required
+            min="0"
             style={{ width: '100%' }}
           />
 
-          <label>Description :</label>
-          <input
-            type="text"
+          <label>Description:</label>
+          <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
             required
+            rows="4"
             style={{ width: '100%' }}
           />
 
-          <label>Video Link :</label>
+          <label>Video Link:</label>
           <input
             type="text"
             name="video"
@@ -101,7 +109,7 @@ function AddCourse() {
             style={{ width: '100%' }}
           />
 
-          <label>Image Link :</label>
+          <label>Image Link:</label>
           <input
             type="text"
             name="photo"
@@ -111,8 +119,13 @@ function AddCourse() {
             style={{ width: '100%' }}
           />
 
-          {error && <span className="error-msg">{error}</span>}
-          <div className="btn1">
+          {error && (
+            <div style={{ color: 'red', marginTop: '10px' }}>
+              {error}
+            </div>
+          )}
+
+          <div className="btn1" style={{ marginTop: '20px' }}>
             <button type="submit">Add Course</button>
           </div>
         </form>
