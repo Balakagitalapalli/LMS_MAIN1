@@ -71,7 +71,7 @@ function AddQuestion() {
     
 
     try {
-      const response = await  axios.post(`https://inspiring-balance-production.up.railway.app/api/users/login`, {
+      const response = await fetch('https://inspiring-balance-production.up.railway.app/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
