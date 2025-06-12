@@ -15,7 +15,7 @@ function Courses() {
    const authToken = localStorage.getItem('token');
   
   useEffect(() => {
-     axios.post(`https://inspiring-balance-production.up.railway.app/api/users/login`)
+   fetch("https://inspiring-balance-production.up.railway.app/api/courses")
       .then((response) => response.json())
       .then((data) => {
         setCourses(data);
@@ -25,7 +25,7 @@ function Courses() {
       });
       const userId = localStorage.getItem("id");
       if(userId){
-         axios.post(`https://inspiring-balance-production.up.railway.app/api/learning/${userId}`)
+         fetch(`https://inspiring-balance-production.up.railway.app/api/learning/${userId}`)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -47,7 +47,7 @@ function Courses() {
         userId: userId,
         courseId: courseId
      };
-       axios.post(`https://inspiring-balance-production.up.railway.app/api/learning', enrollRequest`) .then((response) => {
+       axios.post('https://inspiring-balance-production.up.railway.app/api/learning', enrollRequest) .then((response) => {
             if(response.data == "Enrolled successfully"){
               toast.success('Course Enrolled successfully', {
                 position: 'top-right',
