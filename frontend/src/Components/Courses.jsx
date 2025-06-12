@@ -87,7 +87,7 @@ return (
   <Navbar page={"courses"}/>
      <div className="courses-container" style={{marginTop :"100px",background: "linear-gradient(to right, rgb(240, 161, 23), #dff1ff)",}}>
       {courses.map((course) => (
-        <div key={course.course_id} className="course-card">
+        <div key={course.course_id} className="course-card"   style={{marginTop :"30px",}}>
           
             <img src={course.p_link} alt={course.course_name} className="course-image" />
             <div className="course-details">
