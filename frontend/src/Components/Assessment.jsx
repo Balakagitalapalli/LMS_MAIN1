@@ -75,7 +75,7 @@ let message = '';
   } else if (correctCount >= 3) {
     message = 'Really good! 😊👍';
   } else {
-    message = '"Better luck next time, champ 💪😎';
+    message = 'Retry and conquer 💪🔁';
   }
 
   return (
