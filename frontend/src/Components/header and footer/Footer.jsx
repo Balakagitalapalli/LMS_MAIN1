@@ -7,11 +7,11 @@ function Footer(){
   <section id='footer'>
      <footer>
         <div className="footer-col">
-          <h3>Master Courses</h3>
-          <li>Web Development</li>
-          <li>Programming</li>
-          <li>Machine Learning</li>
-          <li>Project Fundamentals</li>
+          <h3>🔹Quick Links</h3>
+          <li><a href="https://lms-main-1.vercel.app/">Home</a></li>
+          <li><a href="https://adityauniversity.in/overview">About Us</a></li>
+          <li><a href="https://lms-main-1.vercel.app/courses">Courses</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=919989776661&text&type=phone_number&app_absent=0">Contact</a></li>
         </div>
         <div className="footer-col">
           <h3>Intermediate Courses</h3>
