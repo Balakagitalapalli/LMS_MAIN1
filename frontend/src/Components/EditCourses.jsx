@@ -112,7 +112,8 @@ function EditCourse() {
           {formErrors.price && <span className='error-msg' style={{color:'red',fontWeight:'bold',textAlign:'start'}}>{formErrors.price}</span>}
 
           <label>Description: </label>
-          <input type="text" name="description" value={formData.description} onChange={handleChange} required style={{ width: "100%" }} />
+          <input type="url" name="description" value={formData.description} onChange={handleChange} required style={{ width: "100%" }} />
+
           {formErrors.description && <span className='error-msg' style={{color:'red',fontWeight:'bold',textAlign:'start'}}>{formErrors.description}</span>}
 
           <label>Video Link: </label>
