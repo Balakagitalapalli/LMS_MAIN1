@@ -220,12 +220,27 @@ const Course = () => {
             </div>
           </div>
 
-          <h4 style={{ marginTop: "20px" , boxShadow: "0 0 20px rgba(0, 0, 0, 0.52)" , borderRadius:'10px'}}>
-            Description:{" "}
-            <span style={{ fontStyle: "italic", color: "grey" }}>
-              {course.description}
-            </span>
+         <h4
+                style={{
+                  marginTop: "20px",
+                  boxShadow: "0 0 20px rgba(0, 0, 0, 0.52)",
+                  borderRadius: "10px",
+                  padding: "10px"
+                }}
+              >
+                Description:{" "}
+                <span style={{ fontStyle: "italic", color: "grey" }}>
+                  <a
+                    href={course.description}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "grey", textDecoration: "underline" }}
+                  >
+                    {course.description}
+                  </a>
+                </span>
           </h4>
+
 
           <p
             style={{
