@@ -57,7 +57,7 @@ function AddCourse() {
           <input type="number" name="price" value={formData.price} onChange={handleChange} required style={{ width: "100%" }} />
 
           <label>Description:</label>
-          <textarea name="description" value={formData.description} onChange={handleChange} required style={{ width: "100%" }} />
+          <input type="text" name="description" value={formData.description} onChange={handleChange} required style={{ width: "100%" }} />
 
           <label>Video Link:</label>
           <input type="text" name="video" value={formData.video} onChange={handleChange} required style={{ width: "100%" }} />
