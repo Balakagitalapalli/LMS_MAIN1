@@ -226,6 +226,7 @@ const Course = () => {
                   boxShadow: "0 0 20px rgba(0, 0, 0, 0.52)",
                   borderRadius: "10px",
                   padding: "10px"
+                  cursor: "pointer",
                 }}
               >
                 Description:{" "}
